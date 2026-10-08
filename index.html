@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Kristina (@krisss.xo) — UGC creator portfolio, rate card and quote builder.">
+<meta property="og:title" content="Kristina · UGC Portfolio">
+<meta property="og:image" content="/media/p3.jpg">
+<link rel="icon" href="/media/avatar.jpg">
+<title>Kristina · UGC Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,800;1,6..96,500;1,6..96,700&family=Archivo:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: blush "beauty-mag" ground, Bodoni masthead, a tilted wall of phones, then a vertical reel grid, the Merlot rate card, and a quote builder. */
+:root{
+  --blush:#F6DCE1;      /* page ground: her PR-box / pink-ghost blush */
+  --petal:#FBEDEF;      /* raised surface */
+  --merlot:#5A1426;     /* deep wine: headings, rate card ground */
+  --crimson:#A61E3A;    /* the red-dress red: accent */
+  --spice:#C9632E;      /* pumpkin-season orange: secondary accent */
+  --ink:#24121A;        /* body text */
+  --muted:#7A5560;
+  --line:#E7BFC8;
+  --on-merlot:#FBEDEF;
+  --card-bg:var(--merlot);
+  --f-display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --f-body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"DM Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --blush:#1A0D12;--petal:#26141B;--merlot:#F3C3CD;--crimson:#E8566F;--spice:#E8874F;
+  --ink:#F6E6EA;--muted:#C49AA6;--line:#4A2532;--on-merlot:#FBEDEF;--card-bg:#3B0F1D;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --blush:#1A0D12;--petal:#26141B;--merlot:#F3C3CD;--crimson:#E8566F;--spice:#E8874F;
+  --ink:#F6E6EA;--muted:#C49AA6;--line:#4A2532;--on-merlot:#FBEDEF;--card-bg:#3B0F1D;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--blush);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--crimson);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--f-display);color:var(--merlot);margin:0;text-wrap:balance;font-weight:800}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--crimson)}
+section{padding-block:72px}
+
+/* nav */
+nav.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:18px;flex-wrap:wrap}
+.mark{font-family:var(--f-display);font-style:italic;font-weight:700;font-size:22px;color:var(--merlot);text-decoration:none}
+.mark b{color:var(--crimson);font-style:normal}
+nav.top ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:14px;font-weight:600;flex-wrap:wrap}
+nav.top ul a{text-decoration:none;color:var(--ink)}
+nav.top ul a:hover{color:var(--crimson)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding-block:28px 64px}
+.hero > *{min-width:0}
+.hero h1{font-size:clamp(54px,8.6vw,124px);line-height:.86;letter-spacing:-.03em}
+.hero h1 em{font-weight:500;color:var(--crimson)}
+.hero .lede{font-size:19px;max-width:30em;margin:22px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{font-family:var(--f-mono);font-size:12px;padding:6px 11px;border:1px solid var(--line);border-radius:99px;background:var(--petal);color:var(--ink)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:13px 22px;border-radius:99px;text-decoration:none;border:2px solid var(--merlot);cursor:pointer;font-family:var(--f-body)}
+.btn.solid{background:var(--crimson);border-color:var(--crimson);color:#fff}
+.btn.ghost{background:transparent;color:var(--merlot)}
+.btn:hover{transform:translateY(-1px)}
+
+.phones{position:relative;height:540px}
+.phone{position:absolute;width:44%;max-width:230px;aspect-ratio:9/16;border-radius:26px;overflow:hidden;background:#000;border:6px solid #120709;box-shadow:0 24px 50px -18px rgba(70,10,25,.55)}
+.phone video{width:100%;height:100%;object-fit:cover;display:block}
+.phone.a{left:2%;top:40px;transform:rotate(-7deg)}
+.phone.b{left:30%;top:0;z-index:2;transform:rotate(1.5deg)}
+.phone.c{right:0;top:70px;transform:rotate(8deg)}
+.sticker{position:absolute;z-index:3;font-family:var(--f-display);font-style:italic;font-weight:700;font-size:20px;background:var(--spice);color:#fff;padding:8px 16px;border-radius:99px;transform:rotate(-6deg);bottom:24px;left:18%}
+
+/* stats strip */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-block:1px solid var(--line)}
+.strip div{padding:22px 18px;border-right:1px solid var(--line)}
+.strip div:last-child{border-right:0}
+.strip b{display:block;font-family:var(--f-display);font-size:34px;color:var(--merlot);font-variant-numeric:tabular-nums;line-height:1.1}
+.strip span{font-size:13px;color:var(--muted)}
+
+/* work grid */
+.head-row{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.head-row h2{font-size:clamp(38px,6vw,64px);line-height:1}
+.head-row p{max-width:34em;margin:10px 0 0;color:var(--muted)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.filters button{font:600 13px var(--f-body);padding:8px 14px;border-radius:99px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--merlot);border-color:var(--merlot);color:var(--blush)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.tile{min-width:0;cursor:pointer;background:none;border:0;padding:0;text-align:left;color:inherit;font:inherit}
+.tile .frame{position:relative;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:#140a0d;max-width:100%}
+.tile video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.tile:hover video{transform:scale(1.03)}
+.tile .dur{position:absolute;top:10px;right:10px;font:500 11px var(--f-mono);background:rgba(20,8,12,.72);color:#fff;padding:4px 8px;border-radius:99px}
+.tile .cat{position:absolute;top:10px;left:10px;font:600 11px var(--f-body);letter-spacing:.04em;background:var(--blush);color:var(--merlot);padding:4px 9px;border-radius:99px}
+.tile .play{position:absolute;bottom:10px;right:10px;width:38px;height:38px;border-radius:50%;background:var(--crimson);display:grid;place-items:center}
+.tile .play svg{width:14px;height:14px;fill:#fff;margin-left:2px}
+.tile h3{font-size:20px;margin-top:12px;line-height:1.15}
+.tile p{margin:4px 0 0;font-size:14px;color:var(--muted)}
+.tile.wide{grid-column:span 2}
+.tile.wide .frame{aspect-ratio:auto;height:100%;max-height:none}
+.tile[hidden]{display:none!important}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.svc{padding:26px 22px 26px 0;border-bottom:1px solid var(--line);min-width:0}
+.svc h3{font-size:24px}
+.svc p{margin:8px 0 0;color:var(--muted);font-size:15px;max-width:28em}
+.svc .eyebrow{display:block;margin-bottom:8px}
+
+/* rate card */
+.ratecard{background:var(--card-bg);color:var(--on-merlot);border-radius:28px;padding:48px clamp(20px,4vw,56px)}
+.ratecard h2,.ratecard h3{color:var(--on-merlot)}
+.ratecard .eyebrow{color:#F3A5B4}
+.ratecard h2{font-size:clamp(40px,6vw,68px);line-height:1}
+.ratecard .sub{color:#E9C3CB;max-width:40em;margin:12px 0 0}
+.rates{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}
+.rates > *{min-width:0}
+.rates h3{font-size:22px;font-style:italic;font-weight:500;margin-bottom:6px}
+.rl{list-style:none;margin:0;padding:0}
+.rl li{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:13px 0;border-bottom:1px dashed rgba(251,237,239,.25)}
+.rl li > span:first-child{min-width:0}
+.rl small{display:block;color:#D9AEB8;font-size:13px}
+.rl .p{font-family:var(--f-mono);font-size:17px;white-space:nowrap;font-variant-numeric:tabular-nums;color:#fff}
+.pkgs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.pkg{border:1px solid rgba(251,237,239,.28);border-radius:20px;padding:24px;min-width:0;display:flex;flex-direction:column;gap:8px}
+.pkg.hot{background:#F6DCE1;color:#3E0E1B;border-color:#F6DCE1}
+.pkg.hot h3,.pkg.hot .price{color:#5A1426}
+.pkg.hot .eyebrow{color:#A61E3A}
+.pkg h3{font-size:26px}
+.pkg .price{font-family:var(--f-display);font-size:44px;font-weight:800;line-height:1;color:#fff}
+.pkg .price small{font-family:var(--f-mono);font-size:13px;font-weight:400;opacity:.75}
+.pkg ul{margin:6px 0 0;padding-left:18px;font-size:14px}
+.terms{margin-top:36px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;font-size:14px;color:#E9C3CB}
+.terms b{display:block;color:#fff;font-size:13px;font-family:var(--f-mono);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+
+/* quote builder */
+.builder{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;margin-top:28px}
+.builder > *{min-width:0}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;background:var(--petal);border:1px solid var(--line);border-radius:22px;padding:26px}
+.form label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--merlot)}
+.form .full{grid-column:1/-1}
+.form select,.form input[type=number]{font:500 15px var(--f-body);padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--blush);color:var(--ink);width:100%}
+.form .check{flex-direction:row;align-items:center;gap:10px;font-weight:500;color:var(--ink)}
+.form .check input{width:18px;height:18px;accent-color:var(--crimson)}
+.quote{background:var(--petal);border:2px solid var(--merlot);border-radius:22px;padding:26px;display:flex;flex-direction:column}
+.quote .lines{list-style:none;margin:14px 0;padding:0;font-size:14px;flex:1}
+.quote .lines li{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid var(--line)}
+.quote .lines li span:last-child{font-family:var(--f-mono);white-space:nowrap;font-variant-numeric:tabular-nums}
+.quote .lines li.disc span:last-child{color:var(--crimson)}
+.total{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.total b{font-family:var(--f-display);font-size:52px;color:var(--merlot);font-variant-numeric:tabular-nums;line-height:1}
+.quote .note{font-size:12px;color:var(--muted);margin:10px 0 0}
+
+/* palette */
+.palette{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:24px}
+.sw{min-width:0}
+.sw .c{aspect-ratio:1;border-radius:16px;border:1px solid var(--line)}
+.sw b{display:block;font-family:var(--f-display);font-size:18px;margin-top:8px;color:var(--merlot)}
+.sw span{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.typespec{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+.typespec div{border-top:1px solid var(--line);padding-top:12px;min-width:0}
+.typespec .s1{font-family:var(--f-display);font-size:34px;font-style:italic;color:var(--merlot)}
+.typespec .s2{font-family:var(--f-body);font-size:22px;font-weight:600}
+.typespec .s3{font-family:var(--f-mono);font-size:18px}
+
+/* contact */
+.contact{text-align:left;display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:end;border-top:1px solid var(--line);padding-top:56px}
+.contact h2{font-size:clamp(48px,8vw,104px);line-height:.9;letter-spacing:-.02em}
+.contact h2 em{color:var(--crimson);font-weight:500}
+.email{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:18px 0 4px}
+.email .eyebrow{flex-basis:100%}
+.email #em{font-family:var(--f-mono);font-size:clamp(15px,2.2vw,19px);color:var(--merlot);word-break:break-all}
+.email .btn{padding:8px 16px;font-size:13px}
+.avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;border:4px solid var(--petal);box-shadow:0 0 0 2px var(--crimson);margin-bottom:18px;display:block}
+footer{padding-block:28px 40px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* lightbox */
+.lb[hidden]{display:none!important}
+.lb{position:fixed;inset:0;background:rgba(18,6,10,.86);display:grid;place-items:center;z-index:50;padding:20px}
+.lb .inner{position:relative;width:min(420px,100%);max-height:100%;display:flex;flex-direction:column;gap:10px}
+.lb video{width:100%;max-height:78vh;border-radius:20px;background:#000;object-fit:contain}
+.lb .meta{color:#FBEDEF}
+.lb .meta h3{color:#FBEDEF;font-size:24px}
+.lb .meta p{margin:4px 0 0;color:#E2B8C1;font-size:14px}
+.lb .x{position:absolute;top:-6px;right:-6px;width:40px;height:40px;border-radius:50%;border:0;background:#FBEDEF;color:#5A1426;font-size:22px;cursor:pointer;z-index:2}
+
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr}
+  .phones{height:460px;max-width:520px}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .rates,.builder,.contact{grid-template-columns:1fr}
+  .pkgs{grid-template-columns:1fr}
+  .terms{grid-template-columns:1fr 1fr}
+  .services{grid-template-columns:1fr 1fr}
+  .palette{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:620px){
+  section{padding-block:52px}
+  .grid{grid-template-columns:1fr 1fr;gap:14px}
+  .tile.wide{grid-column:span 2}
+  .tile h3{font-size:17px}
+  .strip{grid-template-columns:1fr 1fr}
+  .strip div:nth-child(2){border-right:0}
+  .strip div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .services{grid-template-columns:1fr}
+  .form{grid-template-columns:1fr}
+  .terms{grid-template-columns:1fr}
+  .typespec{grid-template-columns:1fr}
+  .phones{height:380px}
+  nav.top ul{gap:14px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <nav class="top" aria-label="Sections">
+    <a class="mark" href="#top" style="display:inline-flex;align-items:center;gap:10px"><img src="media/avatar.jpg" alt="" width="34" height="34" style="width:34px;height:34px;border-radius:50%;object-fit:cover"><span>krisss<b>.</b>xo</span></a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#rates">Rates</a></li>
+      <li><a href="#quote">Get a quote</a></li>
+      <li><a href="#contact">Book</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="top">
+    <div>
+      <div class="eyebrow">UGC Creator · California &amp; Georgia</div>
+      <h1>Kristina<em>.</em></h1>
+      <p class="lede">Fashion and fitness finds, real-life reviews, and lifestyle content that feels like a friend's recommendation. Vertical video made for TikTok, Reels and paid ads.</p>
+      <div class="chips">
+        <span class="chip">On-camera</span><span class="chip">Voiceover</span><span class="chip">POV &amp; hands-only</span><span class="chip">Unboxing</span><span class="chip">Try-on</span><span class="chip">Fitness</span><span class="chip">TikTok Shop</span><span class="chip">Local spots</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn solid" href="#work">Watch the reel</a>
+        <a class="btn ghost" href="#rates">See rates</a>
+      </div>
+    </div>
+    <div class="phones" aria-hidden="true">
+      <div class="phone a"><video src="media/v7.mp4" poster="media/p7.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+      <div class="phone b"><video src="media/v3.mp4" poster="media/p3.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+      <div class="phone c"><video src="media/v1.mp4" poster="media/p1.jpg" muted loop playsinline autoplay preload="metadata"></video></div>
+      <span class="sticker">real life, real reviews</span>
+    </div>
+  </header>
+
+  <div class="strip">
+    <div><b>1,012</b><span>TikTok followers</span></div>
+        <div><b>7,700</b><span>Likes</span></div>
+    <div><b>35K</b><span>Views on top video</span></div>
+        <div><b>5–7 days</b><span>Standard turnaround</span></div>
+  </div>
+
+  <section id="work">
+    <div class="head-row">
+      <div>
+        <div class="eyebrow">Portfolio</div>
+        <h2>The work</h2>
+        <p>Tap any video to watch it with sound. Each one shows a format I can create for your brand.</p>
+      </div>
+    </div>
+    <div class="filters" role="group" aria-label="Filter by category" id="filters"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="services">
+    <div class="head-row"><div><div class="eyebrow">What I make</div><h2>Formats</h2></div></div>
+    <div class="services">
+      <div class="svc"><span class="eyebrow">Taste test</span><h3>Food &amp; drink reviews</h3><p>First bite on camera, honest reaction, the order up close. Built for restaurants, QSR, cafés and CPG snacks.</p></div>
+      <div class="svc"><span class="eyebrow">Unboxing</span><h3>PR &amp; product reveals</h3><p>Hands-only or on-camera unboxings that show the packaging, the product and the first impression.</p></div>
+      <div class="svc"><span class="eyebrow">Fit check</span><h3>Try-ons &amp; hauls</h3><p>Fashion and activewear try-ons with full-length framing, movement and before-and-after transitions.</p></div>
+      <div class="svc"><span class="eyebrow">On location</span><h3>Local business features</h3><p>Walk-in tours for cafés, boutiques and studios with location text, menu highlights and a clear call to visit.</p></div>
+      <div class="svc"><span class="eyebrow">How-to</span><h3>Tutorials &amp; talking head</h3><p>Mic'd, scripted or conversational walkthroughs for apps, tools and products that need explaining.</p></div>
+      <div class="svc"><span class="eyebrow">Lifestyle</span><h3>POV &amp; trend edits</h3><p>Relatable captions, trending audio and quick-cut POVs for retail drops, seasonal launches and home finds.</p></div>
+    </div>
+  </section>
+
+  <section id="rates">
+    <div class="ratecard">
+      <div class="eyebrow">Rate card · 2026</div>
+      <h2>Rates</h2>
+      <p class="sub">Every video includes concept, filming, editing, captions or text overlays, one round of revisions, and organic usage on your own brand pages. Paid ad usage is priced separately below.</p>
+
+      <div class="rates">
+        <div>
+          <h3>Videos</h3>
+          <ul class="rl">
+            <li><span>Product showcase<small>Hands-only / B-roll / POV, up to 30s</small></span><span class="p">$125</span></li>
+            <li><span>Standard UGC video<small>On-camera hook, demo, CTA, up to 30s</small></span><span class="p">$175</span></li>
+            <li><span>Try-on or haul<small>Up to 3 looks or items, up to 45s</small></span><span class="p">$200</span></li>
+            <li><span>Talking head / tutorial<small>Mic'd voice, scripted or testimonial, up to 60s</small></span><span class="p">$225</span></li>
+            <li><span>On-location feature<small>Restaurant, café, store or studio within 25 mi</small></span><span class="p">$250</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Add-ons</h3>
+          <ul class="rl">
+            <li><span>Extra hook variation<small>New opening 3 seconds for A/B testing</small></span><span class="p">$35 ea</span></li>
+            <li><span>Raw footage<small>All unedited clips from the shoot</small></span><span class="p">+40%</span></li>
+            <li><span>Paid ad usage<small>30 days / 90 days / 6 months</small></span><span class="p">+30 / 50 / 75%</span></li>
+            <li><span>Whitelisting / Spark Ads<small>Ads run from @krisss.xo, per month</small></span><span class="p">+30%/mo</span></li>
+            <li><span>Rush delivery<small>72 hours / 48 hours</small></span><span class="p">+25 / 50%</span></li>
+            <li><span>TikTok Shop affiliate video<small>Posted to my Showcase, plus your commission</small></span><span class="p">$75 + %</span></li>
+            <li><span>Post to my TikTok<small>Organic post on @krisss.xo</small></span><span class="p">$75</span></li>
+            <li><span>Lifestyle photos<small>Set of 5 edited stills</small></span><span class="p">$100</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pkgs">
+        <div class="pkg">
+          <span class="eyebrow">Try me</span>
+          <h3>Starter</h3>
+          <div class="price">$475 <small>value $525</small></div>
+          <ul><li>3 standard UGC videos</li><li>Organic usage on your pages</li><li>1 revision round each</li></ul>
+        </div>
+        <div class="pkg hot">
+          <span class="eyebrow">Most booked</span>
+          <h3>Campaign</h3>
+          <div class="price">$1,100 <small>value $1,313</small></div>
+          <ul><li>5 standard UGC videos</li><li>1 extra hook per video</li><li>30-day paid ad usage included</li></ul>
+        </div>
+        <div class="pkg">
+          <span class="eyebrow">Monthly</span>
+          <h3>Retainer</h3>
+          <div class="price">$1,200 <small>/ month</small></div>
+          <ul><li>8 standard videos per month ($150 each)</li><li>Priority 5-day turnaround</li><li>3-month minimum</li></ul>
+        </div>
+      </div>
+
+      <div class="terms">
+        <div><b>Booking</b>50% deposit to reserve, balance on delivery.</div>
+        <div><b>Product</b>Shipped free and kept by the creator. Not counted as payment.</div>
+        <div><b>Turnaround</b>5–7 business days after product arrives.</div>
+        <div><b>Revisions</b>1 round included. Extra rounds $40 each.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="quote">
+    <div class="head-row"><div><div class="eyebrow">Quote builder</div><h2>Build your order</h2><p>Pick what you need and see the price right away. Copy the summary and email it to me to book.</p></div></div>
+    <div class="builder">
+      <form class="form" id="qform" onsubmit="return false">
+        <label class="full" for="q-type">Video type
+          <select id="q-type">
+            <option value="125">Product showcase · $125</option>
+            <option value="175" selected>Standard UGC video · $175</option>
+            <option value="200">Try-on or haul · $200</option>
+            <option value="225">Talking head / tutorial · $225</option>
+            <option value="250">On-location feature · $250</option>
+          </select>
+        </label>
+        <label for="q-qty">Number of videos
+          <input id="q-qty" type="number" min="1" max="30" value="3">
+        </label>
+        <label for="q-hooks">Extra hooks per video
+          <input id="q-hooks" type="number" min="0" max="5" value="1">
+        </label>
+        <label for="q-usage">Paid ad usage
+          <select id="q-usage">
+            <option value="0">None (organic only)</option>
+            <option value="0.30" selected>30 days · +30%</option>
+            <option value="0.50">90 days · +50%</option>
+            <option value="0.75">6 months · +75%</option>
+          </select>
+        </label>
+        <label for="q-wl">Whitelisting months
+          <input id="q-wl" type="number" min="0" max="12" value="0">
+        </label>
+        <label for="q-rush">Turnaround
+          <select id="q-rush">
+            <option value="0" selected>Standard · 5–7 days</option>
+            <option value="0.25">72 hours · +25%</option>
+            <option value="0.50">48 hours · +50%</option>
+          </select>
+        </label>
+        <label class="check" for="q-raw"><input id="q-raw" type="checkbox"> Raw footage (+40%)</label>
+        <label class="check full" for="q-post"><input id="q-post" type="checkbox"> Also post on @krisss.xo ($75 per video)</label>
+      </form>
+      <div class="quote" aria-live="polite">
+        <div class="eyebrow">Your estimate</div>
+        <ul class="lines" id="qlines"></ul>
+        <div class="total"><span>Total</span><b id="qtotal">$0</b></div>
+        <p class="note">Bundle discount applies automatically: 10% off 3–4 videos, 15% off 5 or more. Final quote confirmed after the brief.</p>
+        <button class="btn solid" type="button" id="qcopy" style="margin-top:16px;justify-content:center">Copy summary</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="brand">
+    <div class="head-row"><div><div class="eyebrow">Brand kit</div><h2>Merlot &amp; Blush</h2><p>The palette comes straight from the feed: the wine-red dress, the blush PR boxes, and pumpkin-season orange.</p></div></div>
+    <div class="palette">
+      <div class="sw"><div class="c" style="background:#5A1426"></div><b>Merlot</b><span>#5A1426</span></div>
+      <div class="sw"><div class="c" style="background:#A61E3A"></div><b>Red Dress</b><span>#A61E3A</span></div>
+      <div class="sw"><div class="c" style="background:#F6DCE1"></div><b>Blush</b><span>#F6DCE1</span></div>
+      <div class="sw"><div class="c" style="background:#FBEDEF"></div><b>Petal</b><span>#FBEDEF</span></div>
+      <div class="sw"><div class="c" style="background:#C9632E"></div><b>Pumpkin Spice</b><span>#C9632E</span></div>
+      <div class="sw"><div class="c" style="background:#24121A"></div><b>After Dark</b><span>#24121A</span></div>
+    </div>
+    <div class="typespec">
+      <div><div class="eyebrow">Headlines</div><div class="s1">Bodoni Moda</div></div>
+      <div><div class="eyebrow">Body</div><div class="s2">Archivo</div></div>
+      <div><div class="eyebrow">Prices &amp; labels</div><div class="s3">DM Mono</div></div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div>
+      <img class="avatar" src="media/avatar.jpg" alt="Kristina" width="96" height="96">
+      <div class="eyebrow">Book a project</div>
+      <h2>Let's make<br>something <em>good.</em></h2>
+    </div>
+    <div>
+      <p>Send your product, the goal, and your timeline. I reply within 24 hours with a concept and a final quote.</p>
+      <div class="email"><span class="eyebrow">Partnerships</span><span id="em">krisxopartnership@gmail.com</span><button class="btn ghost" type="button" id="emcopy">Copy email</button></div>
+      <div class="cta-row">
+        <a class="btn solid" href="mailto:krisxopartnership@gmail.com">Email me</a>
+        <a class="btn ghost" href="https://www.tiktok.com/@krisss.xo" target="_blank" rel="noopener">TikTok · @krisss.xo</a>
+      </div>
+    </div>
+  </section>
+
+  <footer><span>© 2026 Kristina · @krisss.xo</span><span>Rates valid through 2026</span></footer>
+</div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Video player">
+  <div class="inner">
+    <button class="x" id="lbx" aria-label="Close">×</button>
+    <video id="lbv" controls playsinline></video>
+    <div class="meta"><h3 id="lbt"></h3><p id="lbd"></p></div>
+  </div>
+</div>
+
+<script>
+const WORK=[
+  {n:3,cat:"Fashion",t:"Fit check: wine-red maxi",d:"Full-length try-on with spins and back detail.",s:"0:10",wide:false},
+  {n:7,cat:"Local Biz",t:"Mood Cafe, Lawrenceville",d:"On-location café feature with location titles.",s:"0:13"},
+  {n:1,cat:"Food & Bev",t:"In-car bowl taste test",d:"Bag reveal, first bite, real reaction.",s:"0:06"},
+  {n:2,cat:"Beauty",t:"Body care PR unboxing",d:"Hands-only reveal of mists and sprays.",s:"0:17"},
+  {n:11,cat:"Tech & Apps",t:"Editing app tutorial",d:"Mic'd talking head with screen walkthrough.",s:"1:11"},
+  {n:4,cat:"Fashion",t:"“When that set arrives”",d:"Story-style package-arrival skit.",s:"0:09"},
+  {n:9,cat:"Home & DIY",t:"DIY mirror wall",d:"Install-to-reveal home project.",s:"0:15"},
+  {n:5,cat:"Seasonal",t:"Fall décor aisle walk",d:"Retail POV with relatable caption.",s:"0:07"},
+  {n:10,cat:"Seasonal",t:"Spooky-season finds",d:"Halloween décor, PJs and candy haul.",s:"0:07"},
+  {n:8,cat:"E-commerce",t:"“Delivered today” POV",d:"Order screenshot to front-door pickup.",s:"0:07"},
+  {n:6,cat:"Tech & Apps",t:"Creator gear unpack",d:"Flat-lay of lights and stands, funny caption.",s:"0:08"}
+];
+const grid=document.getElementById('grid'),filters=document.getElementById('filters');
+const cats=["All",...new Set(WORK.map(w=>w.cat))];
+cats.forEach((c,i)=>{const b=document.createElement('button');b.type='button';b.textContent=c;b.setAttribute('aria-pressed',i===0);b.onclick=()=>{filters.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));grid.querySelectorAll('.tile').forEach(t=>{t.hidden=!(c==="All"||t.dataset.cat===c)})};filters.appendChild(b)});
+WORK.forEach(w=>{
+  const el=document.createElement('button');el.type='button';el.className='tile';el.dataset.cat=w.cat;
+  el.innerHTML=`<div class="frame"><video src="media/v${w.n}.mp4" poster="media/p${w.n}.jpg" muted loop playsinline preload="none"></video><span class="cat">${w.cat}</span><span class="dur">${w.s}</span><span class="play"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span></div><h3>${w.t}</h3><p>${w.d}</p>`;
+  el.setAttribute('aria-label','Play '+w.t);
+  el.onclick=()=>openLB(w);grid.appendChild(el);
+});
+// play tiles only while on screen
+const io=('IntersectionObserver' in window)?new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.play().catch(()=>{})}else v.pause()}),{threshold:.35}):null;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.querySelectorAll('.tile video, .phone video').forEach(v=>{if(reduce){v.removeAttribute('autoplay');v.pause();return}io&&io.observe(v)});
+
+const lb=document.getElementById('lb'),lbv=document.getElementById('lbv');
+function openLB(w){lbv.src=`media/v${w.n}.mp4`;lbv.poster=`media/p${w.n}.jpg`;document.getElementById('lbt').textContent=w.t;document.getElementById('lbd').textContent=w.cat+' · '+w.d;lb.hidden=false;lbv.muted=false;lbv.play().catch(()=>{});document.getElementById('lbx').focus()}
+function closeLB(){lbv.pause();lbv.removeAttribute('src');lbv.load();lb.hidden=true}
+document.getElementById('lbx').onclick=closeLB;
+function fromHash(){const m=(location.hash||'').match(/^#v(\d+)$/);if(!m)return;const w=WORK.find(x=>x.n===+m[1]);if(!w)return;
+  document.getElementById('work').scrollIntoView();openLB(w);lbv.play().catch(()=>{lbv.muted=true;lbv.play().catch(()=>{})})}
+window.addEventListener('hashchange',fromHash);fromHash();lb.addEventListener('click',e=>{if(e.target===lb)closeLB()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!lb.hidden)closeLB()});
+
+// quote builder
+const $=id=>document.getElementById(id);const fmt=n=>'$'+Math.round(n).toLocaleString('en-US');
+function calc(){
+  const typeSel=$('q-type'),base=+typeSel.value,qty=Math.max(1,Math.min(30,+$('q-qty').value||1)),hooks=Math.max(0,+$('q-hooks').value||0);
+  const usage=+$('q-usage').value,wl=Math.max(0,+$('q-wl').value||0),rush=+$('q-rush').value,raw=$('q-raw').checked,post=$('q-post').checked;
+  const L=[];const vids=base*qty;L.push([`${qty} × ${typeSel.options[typeSel.selectedIndex].text.split(' · ')[0]}`,vids]);
+  if(hooks)L.push([`${hooks*qty} extra hooks × $35`,hooks*qty*35]);
+  if(raw)L.push(['Raw footage (+40%)',vids*.4]);
+  if(usage)L.push([`Paid ad usage (+${usage*100}%)`,vids*usage]);
+  if(wl)L.push([`Whitelisting × ${wl} mo (+30%/mo)`,vids*.3*wl]);
+  if(rush)L.push([`Rush delivery (+${rush*100}%)`,vids*rush]);
+  if(post)L.push([`Posted on @krisss.xo × ${qty}`,75*qty]);
+  let sub=L.reduce((a,b)=>a+b[1],0);const d=qty>=5?.15:qty>=3?.10:0;
+  if(d)L.push([`Bundle discount (−${d*100}% on videos)`,-vids*d]);
+  const tot=sub-vids*d;
+  $('qlines').innerHTML=L.map(([k,v])=>`<li class="${v<0?'disc':''}"><span>${k}</span><span>${v<0?'−'+fmt(-v):fmt(v)}</span></li>`).join('');
+  $('qtotal').textContent=fmt(tot);
+  return L.map(([k,v])=>`${k}: ${v<0?'-'+fmt(-v):fmt(v)}`).join('\n')+`\nTotal: ${fmt(tot)}`;
+}
+document.getElementById('qform').addEventListener('input',calc);document.getElementById('qform').addEventListener('change',calc);calc();
+$('qcopy').onclick=()=>{const txt='Quote for Kristina (@krisss.xo)\nSend to: krisxopartnership@gmail.com\n'+calc();const b=$('qcopy');
+  const done=()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy summary',1600)};
+  try{navigator.clipboard.writeText(txt).then(done).catch(()=>{fallback(txt);done()})}catch(e){fallback(txt);done()}};
+$('emcopy').onclick=()=>{const b=$('emcopy'),t='krisxopartnership@gmail.com',done=()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy email',1600)};try{navigator.clipboard.writeText(t).then(done).catch(()=>{fallback(t);done()})}catch(e){fallback(t);done()}};
+function fallback(t){const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}ta.remove()}
+</script>
+
+</body>
+</html>
